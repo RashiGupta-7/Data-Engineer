@@ -72,6 +72,7 @@ This document summarizes the discussion and steps for designing a robust ETL pip
 * Include retry logic in orchestration to handle transient failures.
 
 📘 Day 2: BigQuery Concepts
+
 🧩 1. Partitioning
 
 Partitioning helps in managing and querying large datasets efficiently by splitting data into segments.
@@ -128,9 +129,9 @@ Keep schema files under version control (.json format)
 
 💡 BigQuery Best Practices:
 
-Avoid SELECT * — always query required columns.
+Avoid SELECT * — always query only the required columns.
 
-Use Table Preview for inspection.
+Use Table Preview for inspection instead of full scans.
 
 Combine Partitioning + Clustering for best results.
 
