@@ -71,25 +71,25 @@ This document summarizes the discussion and steps for designing a robust ETL pip
 * Use `max_bad_records` only for minor/occasional errors.
 * Include retry logic in orchestration to handle transient failures.
 
-📘 Day 2: BigQuery Concepts
+# 📘 Day 2: BigQuery Concepts
 
-🧩 1. Partitioning
+## 🧩 1. Partitioning
 
 Partitioning helps in managing and querying large datasets efficiently by splitting data into segments.
 
 Types:
 
-Ingestion-time partitioning
+* Ingestion-time partitioning
 
-Column-based partitioning (DATE, TIMESTAMP, or DATETIME)
+* Column-based partitioning (DATE, TIMESTAMP, or DATETIME)
 
-Integer-range partitioning
+* Integer-range partitioning
 
 Benefits: Faster queries, lower cost, and easier data management.
 
 Tip: Always use partition filters to avoid full scans.
 
-🧮 2. Clustering
+## 🧮 2. Clustering
 
 Clustering organizes data within partitions (or tables) based on specific column values.
 
@@ -99,33 +99,33 @@ Ideal for high-cardinality fields like user_id, country, product_id.
 
 Benefits:
 
-Improves query performance
+* Improves query performance
 
-Reduces scan cost
+* Reduces scan cost
 
-Works best when combined with partitioning
+* Works best when combined with partitioning
 
-🧰 3. Schema Evolution
+## 🧰 3. Schema Evolution
 
 Managing schema changes in BigQuery tables over time.
 
 Allowed:
 
-Add new nullable columns
+* Add new nullable columns
 
-Change mode from REQUIRED → NULLABLE
+* Change mode from REQUIRED → NULLABLE
 
 Not allowed:
 
-Removing or renaming columns directly
+* Removing or renaming columns directly
 
 Best Practice:
 
-Use CREATE OR REPLACE TABLE for full updates
+* Use CREATE OR REPLACE TABLE for full updates
 
-Keep schema files under version control (.json format)
+* Keep schema files under version control (.json format)
 
-⚙️ 4. Cost Optimization Tips
+## ⚙️ 4. Cost Optimization Tips
 
 💡 BigQuery Best Practices:
 
@@ -139,7 +139,7 @@ Use Materialized Views for repeated heavy queries.
 
 Monitor query slots and use reservations for predictable workloads.
 
-🧩 5. Real-World Example
+## 🧩 5. Real-World Example
 
 Daily Sales Data scenario:
 
